@@ -1,0 +1,100 @@
+﻿@page "/clientes/edit/{id:int}"
+@using BCP.Shared.Models.DTO;
+@inject BCP_FRONT_JM.Services.ClientService ClientService
+@inject NavigationManager Navigation
+
+<h3>Editar Cliente</h3>
+
+<EditForm Model="cliente" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres:</label>
+        <InputText id="nombres" @bind-Value="cliente.Nombres" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="paterno" class="form-label">Apellido Paterno:</label>
+        <InputText id="paterno" @bind-Value="cliente.Paterno" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="materno" class="form-label">Apellido Materno:</label>
+        <InputText id="materno" @bind-Value="cliente.Materno" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="ci" class="form-label">CI:</label>
+        <InputText id="ci" @bind-Value="cliente.CI" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+        <InputDate id="fechaNacimiento" @bind-Value="cliente.FechaNacimiento" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="genero" class="form-label">Género:</label>
+        <InputText id="genero" @bind-Value="cliente.Genero" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="celular" class="form-label">Celular:</label>
+        <InputNumber id="celular" @bind-Value="cliente.Celular" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="nivelIngresos" class="form-label">Nivel de Ingresos:</label>
+        <InputNumber id="nivelIngresos" @bind-Value="cliente.NivelIngresos" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="correo" class="form-label">Correo:</label>
+        <InputText id="correo" @bind-Value="cliente.Correo" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="cuenta" class="form-label">Número de Cuenta:</label>
+        <InputText id="cuenta" @bind-Value="cliente.Cuenta" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" @onclick="Cancelar" class="btn btn-secondary">Cancelar</button>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private BD_CLIENTES_DTO cliente = new BD_CLIENTES_DTO();
+    private BD_CLIENTES_CREATE_DTO clienteCreated = new BD_CLIENTES_CREATE_DTO();
+    private BD_CLIENTES_UPDATE_DTO clienteUpdated = new BD_CLIENTES_UPDATE_DTO();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id != 0)
+        {
+            cliente = await ClientService.GetClientByIdAsync(id);
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        bool result;
+        if (id == 0)
+        {
+            result = await ClientService.CreateClientAsync(clienteCreated);
+        }
+        else
+        {
+            result = await ClientService.UpdateClientAsync(id, clienteUpdated);
+        }
+
+        if (result)
+        {
+            Navigation.NavigateTo("/clientes");
+        }
+        else
+        {
+            Console.WriteLine("Error al guardar el cliente");
+        }
+    }
+
+    private void Cancelar()
+    {
+        Navigation.NavigateTo("/clientes");
+    }
+}
+}

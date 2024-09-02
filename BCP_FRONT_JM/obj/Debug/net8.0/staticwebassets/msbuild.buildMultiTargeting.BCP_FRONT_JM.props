@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BCP_FRONT_JM.props" />
+</Project>

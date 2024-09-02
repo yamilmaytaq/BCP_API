@@ -6,11 +6,11 @@ using BCP.Shared.Models.DTO;
 
 namespace BCP_FRONT_JM.Services
 {
-    public class ClientesService
+    public class ClientService
     {
         private readonly HttpClient _httpClient;
 
-        public ClientesService(HttpClient httpClient)
+        public ClientService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }

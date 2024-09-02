@@ -16,4 +16,8 @@
     <ProjectReference Include="..\BCP.Shared\BCP.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
 </Project>

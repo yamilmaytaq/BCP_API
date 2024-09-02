@@ -1,0 +1,12 @@
+C:\Projects\BCP\BCP.Shared\bin\Debug\net8.0\BCP.Shared.deps.json
+C:\Projects\BCP\BCP.Shared\bin\Debug\net8.0\BCP.Shared.dll
+C:\Projects\BCP\BCP.Shared\bin\Debug\net8.0\BCP.Shared.pdb
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\BCP.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\BCP.Shared.AssemblyInfoInputs.cache
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\BCP.Shared.AssemblyInfo.cs
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\BCP.Shared.csproj.CoreCompileInputs.cache
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\BCP.Shared.sourcelink.json
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\BCP.Shared.dll
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\refint\BCP.Shared.dll
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\BCP.Shared.pdb
+C:\Projects\BCP\BCP.Shared\obj\Debug\net8.0\ref\BCP.Shared.dll

@@ -1,0 +1,44 @@
+﻿@page "/login"
+@inject NavigationManager Navigation
+@inject BCP_FRONT_JM.Services.UserService UserService
+
+<h3>Login</h3>
+
+<EditForm Model="loginModel" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="usuario">Usuario:</label>
+        <InputText id="usuario" @bind-Value="loginModel.Usuario" class="form-control" />
+    </div>
+    <div>
+        <label for="contrasenia">Contraseña:</label>
+        <InputText id="contrasenia" @bind-Value="loginModel.Contrasenia" type="password" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+</EditForm>
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+
+    private async Task HandleLogin()
+    {
+        bool isSuccess = await UserService.LoginAsync(loginModel.Usuario, loginModel.Contrasenia);
+        if (isSuccess)
+        {
+            Navigation.NavigateTo("/clientes");
+        }
+        else
+        {
+            Console.WriteLine("Error de autenticación");
+        }
+    }
+
+    public class LoginModel
+    {
+        public string Usuario { get; set; }
+        public string Contrasenia { get; set; }
+    }
+}

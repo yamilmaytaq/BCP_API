@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución",
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCP_FRONT_JM", "BCP_FRONT_JM\BCP_FRONT_JM.csproj", "{767EC411-CB43-45B4-89D3-90BC86153BD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCP_FRONT_JM", "BCP_FRONT_JM\BCP_FRONT_JM.csproj", "{767EC411-CB43-45B4-89D3-90BC86153BD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCP.Shared", "BCP.Shared\BCP.Shared.csproj", "{1A20FE2E-183C-48EE-9B3C-20806F7EF7E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCP.Shared", "BCP.Shared\BCP.Shared.csproj", "{1A20FE2E-183C-48EE-9B3C-20806F7EF7E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

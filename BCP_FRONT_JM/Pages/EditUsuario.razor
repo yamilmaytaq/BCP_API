@@ -1,0 +1,73 @@
+﻿@page "/usuarios/edit/{id:int}"
+@using BCP.Shared.Models.DTO
+@inject BCP_FRONT_JM.Services.UserService UserService
+@inject NavigationManager Navigation
+
+<h3>Editar Usuario</h3>
+
+<EditForm Model="usuario" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="usuario" class="form-label">Usuario:</label>
+        <InputText id="usuario" @bind-Value="usuario.Usuario" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="contrasenia" class="form-label">Contraseña:</label>
+        <InputText id="contrasenia" @bind-Value="usuario.Contrasenia" type="password" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private BD_USUARIOS_UPDATE_DTO usuarioUpdated = new BD_USUARIOS_UPDATE_DTO();
+    private BD_USUARIOS_CREATE_DTO usuarioCreated = new BD_USUARIOS_CREATE_DTO();
+    private BD_USUARIOS_DTO usuario = new BD_USUARIOS_DTO();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id != 0)
+        {
+            usuario = await UserService.GetUserByIdAsync(id);
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        bool result;
+        if (id == 0)
+        {
+            result = await UserService.CreateUserAsync(usuarioCreated);
+        }
+        else
+        {
+            result = await UserService.UpdateUserAsync(id, usuarioUpdated);
+        }
+
+        if (result)
+        {
+            Navigation.NavigateTo("/usuarios");
+        }
+        else
+        {
+            Console.WriteLine("Error al guardar el usuario");
+        }
+    }
+}
+
+
+<AuthorizeView>
+    <Authorized>
+        <TopBar />
+    </Authorized>
+    <NotAuthorized>
+        @if (!Navigation.Uri.Contains("login"))
+        {
+            Navigation.NavigateTo("/login");
+        }
+    </NotAuthorized>
+</AuthorizeView>
