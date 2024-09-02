@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BCP_API_JM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459a826fa83ef356414709aa89e5a586b049c978")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d463f7eb6e93d69d42a1a612de39a1344287fabc")]
 [assembly: System.Reflection.AssemblyProductAttribute("BCP_API_JM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BCP_API_JM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
