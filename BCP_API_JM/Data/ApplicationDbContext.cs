@@ -11,5 +11,6 @@ namespace BCP_API_JM.Data
 
         }
         public DbSet<BD_CLIENTES> BD_CLIENTES_JM { get; set; }
+        public DbSet<BD_USUARIOS> BD_USUARIOS_JM { get; set; }
     }
 }

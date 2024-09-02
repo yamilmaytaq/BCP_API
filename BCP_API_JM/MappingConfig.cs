@@ -14,6 +14,12 @@ namespace BCP_API_JM
             CreateMap<BD_CLIENTES, BD_CLIENTES_CREATE_DTO>().ReverseMap();
 
             CreateMap<BD_CLIENTES, BD_CLIENTES_UPDATE_DTO>().ReverseMap();
+
+            CreateMap<BD_USUARIOS, BD_USUARIOS_DTO>().ReverseMap();
+
+            CreateMap<BD_USUARIOS, BD_USUARIOS_CREATE_DTO>().ReverseMap();
+
+            CreateMap<BD_USUARIOS, BD_USUARIOS_UPDATE_DTO>().ReverseMap();
         }
     }
 }
