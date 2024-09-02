@@ -114,6 +114,22 @@ namespace BCP_API_JM.Controllers
                     return BadRequest(clientCreateDto);
                 }
 
+                var birthDate = clientCreateDto.FechaNacimiento;
+                var today = DateTime.Today;
+                var age = today.Year - birthDate.Year;
+
+                if (birthDate.Date > today.AddYears(-age))
+                {
+                    age--;
+                }
+
+                if (age < 18)
+                {
+                    ModelState.AddModelError("Error", "Debe ser mayor de edad.");
+                    return BadRequest(ModelState);
+                }
+
+
                 BD_CLIENTES model = _mapper.Map<BD_CLIENTES>(clientCreateDto);
 
                 await _clientesRepo.Create(model);

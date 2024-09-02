@@ -109,6 +109,8 @@ namespace BCP_API_JM.Controllers
                 BD_USUARIOS model = _mapper.Map<BD_USUARIOS>(userCreateDto);
                 model.Contrasenia = hashedPassword;
 
+                
+
                 await _usuariosRepo.Create(model);
 
                 return CreatedAtRoute("GetUser", new { id = model.Id }, model);
