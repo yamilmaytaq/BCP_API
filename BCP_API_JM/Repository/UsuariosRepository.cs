@@ -1,5 +1,5 @@
 ﻿using BCP_API_JM.Data;
-using BCP_API_JM.Models;
+using BCP.Shared.Models;
 using BCP_API_JM.Repository.IRepository;
 
 namespace BCP_API_JM.Repository

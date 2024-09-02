@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BCP_API_JM.Models.DTO
+namespace BCP.Shared.Models.DTO
 {
     public class BD_CLIENTES_UPDATE_DTO
     {

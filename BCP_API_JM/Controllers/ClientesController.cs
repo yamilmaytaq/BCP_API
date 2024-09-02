@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using BCP_API_JM.Data;
-using BCP_API_JM.Models;
+using BCP.Shared.Models;
 using BCP_API_JM.Repository.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static System.Net.Mime.MediaTypeNames;
 using System.Net;
-using BCP_API_JM.Models.DTO;
+using BCP.Shared.Models.DTO;
 
 namespace BCP_API_JM.Controllers
 {

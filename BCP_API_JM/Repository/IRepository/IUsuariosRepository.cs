@@ -1,4 +1,4 @@
-﻿using BCP_API_JM.Models;
+﻿using BCP.Shared.Models;
 
 namespace BCP_API_JM.Repository.IRepository
 {

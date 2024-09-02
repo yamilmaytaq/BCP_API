@@ -1,4 +1,4 @@
-﻿using BCP_API_JM.Models;
+﻿using BCP.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using static System.Net.Mime.MediaTypeNames;
 

@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BCP_API_JM.Models.DTO
+namespace BCP.Shared.Models.DTO
 {
-    public class BD_USUARIOS_DTO
+    public class BD_USUARIOS_CREATE_DTO
     {
-        public int Id { get; set; }
+
         [Required]
         public string Usuario { get; set; }
         [Required]

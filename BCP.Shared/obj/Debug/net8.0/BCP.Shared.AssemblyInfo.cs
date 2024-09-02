@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("BCP_API_JM")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("BCP.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4808dc7a196801d0082e2aa62322ab08fb52592d")]
-[assembly: System.Reflection.AssemblyProductAttribute("BCP_API_JM")]
-[assembly: System.Reflection.AssemblyTitleAttribute("BCP_API_JM")]
+[assembly: System.Reflection.AssemblyProductAttribute("BCP.Shared")]
+[assembly: System.Reflection.AssemblyTitleAttribute("BCP.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.

@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using BCP_API_JM.Data;
-using BCP_API_JM.Models.DTO;
-using BCP_API_JM.Models;
+using BCP.Shared.Models.DTO;
+using BCP.Shared.Models;
 using BCP_API_JM.Repository.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using System.Security.Cryptography;
+using BCP_API_JM.Utils;
 
 namespace BCP_API_JM.Controllers
 {
@@ -95,19 +97,17 @@ namespace BCP_API_JM.Controllers
                     return BadRequest(ModelState);
                 }
 
-                if (await _usuariosRepo.Get(t => t.Usuario.ToString() == userCreateDto.Usuario.ToString()) != null)
+                if (await _usuariosRepo.Get(t => t.Usuario == userCreateDto.Usuario) != null)
                 {
                     _logger.LogError("Error al crear Usuario existente.");
                     ModelState.AddModelError("Exist", "El usuario con el nombre de usuario ya existe, favor ingresar otro dato.");
                     return BadRequest(ModelState);
                 }
 
-                if (userCreateDto == null)
-                {
-                    return BadRequest(userCreateDto);
-                }
+                var hashedPassword = PasswordUtil.HashPassword(userCreateDto.Contrasenia);
 
                 BD_USUARIOS model = _mapper.Map<BD_USUARIOS>(userCreateDto);
+                model.Contrasenia = hashedPassword;
 
                 await _usuariosRepo.Create(model);
 
@@ -116,11 +116,13 @@ namespace BCP_API_JM.Controllers
             catch (Exception ex)
             {
                 _response.IsSuccess = false;
-                _response.ErrorMessages = new List<String>() { ex.ToString() };
+                _response.ErrorMessages = new List<string> { ex.ToString() };
             }
             return Ok(_response);
-
         }
+
+        
+
 
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -182,5 +184,44 @@ namespace BCP_API_JM.Controllers
             return Ok(_response);
 
         }
+
+        [HttpPost("login")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult<APIResponse>> Login([FromBody] BD_USUARIOS_LOGIN_DTO loginDto)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var user = await _usuariosRepo.Get(u => u.Usuario == loginDto.Usuario);
+
+                if (user == null || !PasswordUtil.VerifyPassword(loginDto.Contrasenia, user.Contrasenia))
+                {
+                    return Unauthorized(new APIResponse
+                    {
+                        IsSuccess = false,
+                        statusCode = HttpStatusCode.Unauthorized,
+                        ErrorMessages = new List<string> { "Usuario o contraseña incorrectos." }
+                    });
+                }
+
+                _response.Result = _mapper.Map<BD_USUARIOS_DTO>(user);
+                _response.IsSuccess = true;
+                _response.statusCode = HttpStatusCode.OK;
+                return Ok(_response);
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string> { ex.ToString() };
+            }
+            return _response;
+        }
+
+
     }
 }

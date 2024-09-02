@@ -1699,6 +1699,16 @@
             "rid": "win"
           }
         }
+      },
+      "BCP.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/BCP.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BCP.Shared.dll": {}
+        }
       }
     }
   },
@@ -4756,12 +4766,18 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "BCP.Shared/1.0.0": {
+      "type": "project",
+      "path": "../BCP.Shared/BCP.Shared.csproj",
+      "msbuildProject": "../BCP.Shared/BCP.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "AutoMapper >= 12.0.0",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
+      "BCP.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.Negotiate >= 8.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.4",
@@ -4795,7 +4811,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projects\\BCP\\BCP.Shared\\BCP.Shared.csproj": {
+              "projectPath": "C:\\Projects\\BCP\\BCP.Shared\\BCP.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

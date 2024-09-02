@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace BCP_API_JM.Models
+namespace BCP.Shared.Models
 {
     public class APIResponse
     {

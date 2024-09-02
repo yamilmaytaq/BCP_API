@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using BCP_API_JM.Models;
-using BCP_API_JM.Models.DTO;
+using BCP.Shared.Models;
+using BCP.Shared.Models.DTO;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace BCP_API_JM

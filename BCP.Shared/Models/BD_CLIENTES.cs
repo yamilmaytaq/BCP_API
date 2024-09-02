@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace BCP_API_JM.Models
+namespace BCP.Shared.Models
 {
     public class BD_CLIENTES
     {
