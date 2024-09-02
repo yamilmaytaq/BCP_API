@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BCP_API_JM.props" />
+</Project>
